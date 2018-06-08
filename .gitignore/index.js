@@ -20,9 +20,10 @@ bot.on('message', message => {
 
     switch (args[0].toLowerCase()){
 
-        case "playlist":
-       
-        message.channel.sendMessage("!p https://www.youtube.com/watch?v=kUEfQw5fuAI&list=PLe8jmEHFkvsYv5CV7wSLZk7UG41KY8q_Q")
+        case "sendrules":
+        var title = ("Règles_générales :");
+        var regle = db.get(`ann`).map('regle').value();
+        bot.channels.get('374306466447884298').send(regle)
         break;
         case "supprimerlesalonuesh":    
         message.channel.delete()
@@ -38,15 +39,8 @@ bot.on('message', message => {
         message.channel.sendMessage(variable)
         break;
         case "reactplease":
-            const ytdl = require('ytdl-core');
-const streamOptions = { seek: 0, volume: 1 };
-const channel = message.member.voiceChannel
-channel.join("❤ Vocal of [BL] ❤")
-  .then(connection => {
-    const stream = ytdl('https://www.youtube.com/watch?v=XAWgeLF9EVQ', { filter : 'audioonly' });
-    const dispatcher = connection.playStream(stream, streamOptions);
-  })
-  .catch(console.error);
+        message.react('🇳');
+        message.react('🇴');        
     }
 
 });
