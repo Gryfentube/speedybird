@@ -9,6 +9,6 @@
   "author": "YaC",
   "license": "ISC",
   "dependancies": {
-    "discord.js": "^11.2.1é
+    "discord.js": "^11.2.1"
   }
 }
