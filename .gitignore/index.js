@@ -20,10 +20,9 @@ bot.on('message', message => {
 
     switch (args[0].toLowerCase()){
 
-        case "sendrules":
-        var title = ("Règles_générales :");
+        case "playlist":
        
-        bot.channels.get('374306466447884298').send("regle")
+        message.channel.sendMessage("!p https://www.youtube.com/watch?v=kUEfQw5fuAI&list=PLe8jmEHFkvsYv5CV7wSLZk7UG41KY8q_Q")
         break;
         case "supprimerlesalonuesh":    
         message.channel.delete()
