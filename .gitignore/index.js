@@ -1,12 +1,6 @@
 const Discord = require('discord.js');
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
 
-const adapter = new FileSync('database.json');
-const db = low(adapter);
 
-db.defaults({ ann:[]})
-    .write()
 var bot = new Discord.Client();
 var prefix = ("_");
 var activ = ("Moderer");
@@ -28,8 +22,8 @@ bot.on('message', message => {
 
         case "sendrules":
         var title = ("Règles_générales :");
-        var regle = db.get(`ann`).map('regle').value();
-        bot.channels.get('374306466447884298').send(regle)
+       
+        bot.channels.get('374306466447884298').send("regle")
         break;
         case "supprimerlesalonuesh":    
         message.channel.delete()
