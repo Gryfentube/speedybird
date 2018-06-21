@@ -10,7 +10,7 @@ const db = low(adapter);
     db.defaults({ ann:[]})
         .write()
 bot.login(process.env.TOKEN);
-
+var prefix = ("_"); //définir le prefix du bot
 bot.on('message', message => {
 
     if (!message.content.startsWith(prefix)) return;
@@ -37,7 +37,7 @@ bot.on('message', message => {
         message.channel.sendMessage(variable)
         break;
             case "play":
-            if (message.channel.id === musicbot) {
+            if (message.channel.id === "455050761554886676") {
                var value = message.content.substr(5);
                if (message.member.voiceChannel) {
                    if (value === ""){
@@ -65,7 +65,7 @@ bot.on('message', message => {
             if (message.channel.id === musicbot) {
                var value = message.content.substr(5);
                if (message.member.voiceChannel) {
-                   if (value === ""){
+                   if (value === "pute"){
                        message.reply('il faut que tu entres un lien <:051smiling1:458741159666384906>');
                        }
                    else {
