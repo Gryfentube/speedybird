@@ -11,6 +11,13 @@ const db = low(adapter);
         .write()
 bot.login(process.env.TOKEN);
 var prefix = ("_"); //définir le prefix du bot
+var activ = ("créer un monde sans limite");
+
+bot.on('ready', () => {
+    bot.user.setPresence({ game: { name: activ}});
+    console.log("Le bot est prêt");
+});
+
 bot.on('message', message => {
 
     if (!message.content.startsWith(prefix)) return;
@@ -62,7 +69,7 @@ bot.on('message', message => {
             };
  break;
             case "list":
-            if (message.channel.id === musicbot) {
+            if (message.channel.id === "455050761554886676") {
                var value = message.content.substr(5);
                if (message.member.voiceChannel) {
                    if (value === "pute"){
