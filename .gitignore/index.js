@@ -3,96 +3,56 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const bot = new Discord.Client();
 const adapter = new FileSync('database.json');
-const ytdl = require('ytdl-core');
-const streamOptions = { seek: 0, volume: 1 };
-const fs = require('fs');
 const db = low(adapter);
     db.defaults({ ann:[]})
         .write()
 bot.login(process.env.TOKEN);
-var prefix = ("_"); //définir le prefix du bot
-var activ = ("créer un monde sans limite");
 
+//salons DexSia Introduce YourSelf
+    const annDXSIY = "452800422655033365"; //salon annonce DexSia Introduce Yourself
+//Portal DexSia Introduce Yourself
+    const annPoDXSIY = "455740492999688192"; //salon annonce de Portal Dxs IY
+    const activitDXSIY = "455798472076034051"; //salon activité du bot DexSia Assistant
+    const consauleDXSIY = "455740278272425995"; //salon console de Portal Dxs IY
+//salons DexSia
+    const annDXS = "454994767877636098"; //salon annonce DexSia
+//Portal DexSia
+    const annPoDXS = "455740525807665172"; //salon annonce de Portal DexSia
+    const activitDXS = "455836828214231082"; //salon activité du bot DexSia
+    const consauleDXS = "455740246110240778"; //salon console de Portal DexSia
+//Portal DexSia
+    const activitYAC = "464528875477663744"; //salon activité du bot DexSia
+    const consauleYAC = "455740318135091202"; //salon console de Portal DexSia
+//Admin
+    const jack = "239310906981482496"; //Définir Jack avec son id
+    const gryf = "187554016853622784"; //Définir Gryf avec son id
+    const alladmin = "(message.member.id === jack) || (message.member.id === gryf)"; //Jack ou Gryf (dans un if généralement)
+//end
+
+function rando2(min, max) {
+  min = Math.ceil(0);
+  max = Math.floor(1);
+  randnum = Math.floor(Math.random() * (max - min +1)) + min;}
+function rando3(min, max) {
+  min = Math.ceil(0);
+  max = Math.floor(2);
+  randnum = Math.floor(Math.random() * (max - min +1)) + min;}
+
+function attachIsImage(msgAttach) {
+    var url = msgAttach.url;
+    //True if this url is a png image.
+    return url.indexOf("png", url.length - "png".length /*or 3*/) !== -1;}
+
+
+var prefix = ("_"); //définir le prefix du bot
+var activ = ("être un artiste"); //modifier la valeur entre guillemets pour changer son état au démarage
+var values = ("empty"); //empecher les soucis de values
+
+//event on démarrage
 bot.on('ready', () => {
     bot.user.setPresence({ game: { name: activ}});
+    var annonce = db.get(`ann`).map('annonce').value();
     console.log("Le bot est prêt");
-});
-
-bot.on('message', message => {
-
-    if (!message.content.startsWith(prefix)) return;
-    var args = message.content.substring(prefix.length).split(" ");
-
-    switch (args[0].toLowerCase()){
-
-        case "sendrules":
-        var title = ("Règles_générales :");
-        var regle = db.get(`ann`).map('regle').value();
-        bot.channels.get('374306466447884298').send(regle)
-        break;
-        case "supprimerlesalonuesh":    
-        message.channel.delete()
-        //message.reply("```Bonjour je me présente je suis un bot```");
-        console.log('salope');
-        break;
-        case "id":
-        var variable = message.id
-        message.channel.sendMessage(variable)
-        break;
-        case "idchannel":
-        var variable = message.channel.id
-        message.channel.sendMessage(variable)
-        break;
-            case "play":
-            if (message.channel.id === "455050761554886676") {
-               var value = message.content.substr(5);
-               if (message.member.voiceChannel) {
-                   if (value === ""){
-                       message.reply('il faut que tu entres un lien <:051smiling1:458741159666384906>');
-                       }
-                   else {
-                        message.member.voiceChannel.join()
-                            .then(connection => { // quand il se connecte
-                        message.reply('Je suis là <:051smile:458741156017078273>');
-                        const stream = ytdl(value, { filter : 'audioonly' });
-                        const dispatcher = connection.playStream(stream, streamOptions)
-                            .then(message.channel.sendMessage("Ça va swinguer <:051vomiting1:458741160257781790>"));})
-                   
-
-                }}
-                else {
-                    message.reply('il faut être dans un salon vocal pour faire ça <:051smiling1:458741159666384906>');
-                }
-            }
-            else {
-                message.channel.sendMessage("Il faut être dans <#452833658659930117> pour faire cette commande <:051tongue:458741159326515201>")
-            };
- break;
-            case "list":
-            if (message.channel.id === "455050761554886676") {
-               var value = message.content.substr(5);
-               if (message.member.voiceChannel) {
-                   if (value === "pute"){
-                       message.reply('il faut que tu entres un lien <:051smiling1:458741159666384906>');
-                       }
-                   else {
-                        message.member.voiceChannel.join()
-                            .then(connection => { // quand il se connecte
-                        message.reply('Je suis là <:051smile:458741156017078273>');
-                        const stream = ytdl("https://www.youtube.com/watch?v=C6brqAkArmA", { filter : 'audioonly' });
-                        const dispatcher = connection.playStream(stream, streamOptions)
-                            .then(message.channel.sendMessage("Ça va swinguer <:051vomiting1:458741160257781790>"));})
-                   
-
-                }}
-                else {
-                    message.reply('il faut être dans un salon vocal pour faire ça <:051smiling1:458741159666384906>');
-                }
-            }
-            else {
-                message.channel.sendMessage("Il faut être dans <#452833658659930117> pour faire cette commande <:051tongue:458741159326515201>")
-            };
- break;
-    }
-
+    bot.channels.get(consauleYAC).send({embed: {color: 0x3ac400, author: {name: "Je suis en ligne :D",
+      icon_url: "https://cdn.discordapp.com/icons/441664261454823444/1cced0ad87913d0d5232dce11bedb70f.png"}}})
 });
