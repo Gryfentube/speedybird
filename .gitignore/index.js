@@ -71,6 +71,15 @@ bot.on('message', message => {
             if (message.content.includes("is moi un poème")) {
                 message.channel.sendMessage("Les roses sont rouges, les violettes sont bleues. Vous n'avez rien de mieux à faire ?");
             }
+            if ((message.content.startsWith("onjour")) || (message.content.startsWith("alut")) || (message.content.startsWith("Yo"))) {
+                message.channel.sendMessage("Hey ! Saluuuuuut " + author + " ! <:051smile1:458741159288766464>");
+            }
+            if (message.content.includes("erci")) {
+                message.channel.sendMessage("Ah bah de rien mon gars <:051tired:458741158416220163>");
+            }
+            if (message.content.includes("u as une idé")) {
+                message.channel.sendMessage("Nan mais j'ai pas d'idée, mais regarde Akame je fonctionne !");
+            }
             
             
         }
