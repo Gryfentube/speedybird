@@ -62,10 +62,17 @@ bot.on('message', message => {
     var value = message.content;
     
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
-        
         message.react('👍')
         .then(message.react('👎'));        
+        }
     
-    }
+        if (message.channel.id === "464783525510381579") {
+
+            if (message.content.includes("is moi un poème")) {
+                message.channel.sendMessage("Les roses sont rouges, les violettes sont bleues. Vous n'avez rien de mieux à faire ?");
+            }
+            
+            
+        }
     
 })
