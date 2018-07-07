@@ -80,6 +80,9 @@ bot.on('message', message => {
             if (message.content.includes("u as une idé")) {
                 message.channel.sendMessage("Nan mais j'ai pas d'idée, mais regarde Akame je fonctionne !");
             }
+            if ((message.content.includes("uleur préfér")) || (message.content.includes("quoi"))) {
+                message.channel.sendMessage("Ma couleur préférée, c'est un légume ! <:051shocked:458741159133708330>");
+            }
             
             
         }
