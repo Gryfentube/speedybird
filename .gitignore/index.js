@@ -64,10 +64,8 @@ bot.on('message', message => {
     
     if (message.channel.id === "466719318659432449") {
         bot.user.setPresence({ game: { name: value}})
-            .then(bot.channels.get("464520165820989450").sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author,
-                                                               icon_url: imauth}}})
-                 .then(bot.channels.get("464520165820989450").sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author,
-                                                               icon_url: imauth}}})))};
+        bot.channels.get("464520165820989450").sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author, icon_url: imauth}}})
+        bot.channels.get("464520165820989450").sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author, icon_url: imauth}}})};
     
     
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
