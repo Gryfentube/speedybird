@@ -61,6 +61,12 @@ bot.on('message', message => {
     var author = message.member.displayName;
     var value = message.content;
     
+    if (message.channel.id === "466719318659432449") {
+        bot.user.setPresence({ game: { name: value}})
+            .then(bot.channels.get(consauleYAC).sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author,
+                                                               icon_url: "https://cdn.discordapp.com/icons/441664261454823444/1cced0ad87913d0d5232dce11bedb70f.png"}}}))};
+    
+    
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
         message.react('👍')
         .then(message.react('👎'));        
