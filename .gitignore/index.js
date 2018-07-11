@@ -53,18 +53,19 @@ bot.on('ready', () => {
     bot.user.setPresence({ game: { name: activ}});
     var annonce = db.get(`ann`).map('annonce').value();
     console.log("Le bot est prêt");
-    bot.channels.get(consauleYAC).send({embed: {color: 0x3ac400, author: {name: "Je suis en ligne :D",
+    bot.channels.get("464520165820989450").send({embed: {color: 0x3ac400, author: {name: "Je suis en ligne :D",
       icon_url: "https://cdn.discordapp.com/icons/441664261454823444/1cced0ad87913d0d5232dce11bedb70f.png"}}})
 });
 
 bot.on('message', message => {
     var author = message.member.displayName;
     var value = message.content;
+    var imauth = message.member.user.avatarURL;
     
     if (message.channel.id === "466719318659432449") {
         bot.user.setPresence({ game: { name: value}})
             .then(bot.channels.get(consauleYAC).sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author,
-                                                               icon_url: "https://cdn.discordapp.com/icons/441664261454823444/1cced0ad87913d0d5232dce11bedb70f.png"}}}))};
+                                                               icon_url: imauth}}}))};
     
     
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
