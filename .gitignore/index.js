@@ -70,8 +70,8 @@ bot.on('message', message => {
     
         if (message.channel.id === "473946778555777034" && message.content.startsWith("skribbl")){
             var invite = message.content.substr(8);
-            bot.channels.get("473946811376074753").sendMessage("Êvenement en cours ! @everyone")
-            .then(bot.channels.get("473946811376074753").sendMessage({ "content": "Êvenement en cours ! @everyone",
+            bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
+            .then(bot.channels.get("435043097508970506").sendMessage({ "content": "Êvenement en cours ! @everyone",
   "embed": {
     "title": "Rejoignez le Skribble.io qui est en route !",
     "url": invite,
