@@ -68,6 +68,30 @@ bot.on('message', message => {
         bot.channels.get(consauleYAC).sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author, icon_url: imauth}}})};
     
     
+        if (message.channel.id === "473946778555777034" && message.content.startsWith("skribbl")){
+            var invite = message.content.substr(8);
+            bot.channels.get("473946811376074753").sendMessage({ "content": "Êvenement en cours ! @everyone",
+  "embed": {
+    "title": "Rejoignez le Skribble.io qui est en route !",
+    "url": invite,
+    "color": 2118341,
+    "footer": {
+      "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+      "text": author
+    },
+    "image": {
+      "url": "https://skribbl.io/res/logo.gif"
+    },
+    "author": {
+      "name": "Skribble.io",
+      "url": "https://skribbl.io/",
+      "icon_url": "http://youandcraft.esy.es/images/background.png"
+    }
+   
+  }
+})
+        };
+    
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
         message.react('👍')
         .then(message.react('👎'));        
