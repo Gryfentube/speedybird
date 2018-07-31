@@ -73,7 +73,7 @@ bot.on('message', message => {
             bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
             .then(bot.channels.get("435043097508970506").sendMessage({ "content": "Êvenement en cours ! @everyone",
   "embed": {
-    "title": "Rejoignez le Skribble.io qui est en route !",
+    "title": "Rejoignez le Skribble.io qui est en route ! <:051happy:473830226133254154>",
     "url": invite,
     "color": 2118341,
     "footer": {
