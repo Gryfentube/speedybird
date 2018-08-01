@@ -58,6 +58,21 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
+    var d = new Date();
+    var month = new Array();
+    month[0] = "Janvier";
+    month[1] = "Fevrier";
+    month[2] = "Mars";
+    month[3] = "Avril";
+    month[4] = "Mai";
+    month[5] = "Juin";
+    month[6] = "Juillet";
+    month[7] = "Août";
+    month[8] = "Septembre";
+    month[9] = "Octobre";
+    month[10] = "Novembre";
+    month[11] = "Décembre";
+    var mois = month[d.getMonth()];
     var author = message.member.displayName;
     var value = message.content;
     var imauth = message.member.user.avatarURL;
@@ -69,30 +84,17 @@ bot.on('message', message => {
     
     
         if (message.channel.id === "473946778555777034" && message.content.startsWith("skribbl")){
-            var invite = message.content.substr(8);
-            bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
-            .then(bot.channels.get("435043097508970506").sendMessage({ "content": "Êvenement en cours ! @everyone",
-  "embed": {
-    "title": "Rejoignez le Skribble.io qui est en route ! <:051happy:473830226133254154>",
-    "url": invite,
-    "color": 2118341,
-    "footer": {
-      "icon_url": message.member.user.avatarURL,
-      "text": author
-    },
-    "image": {
-      "url": "https://skribbl.io/res/logo.gif"
-    },
-    "author": {
-      "name": "Skribble.io",
-      "url": "https://skribbl.io/",
-      "icon_url": "http://youandcraft.esy.es/images/background.png"
-    }
-   
-  }
-}))
-        };
-    
+            if (message.content.startsWith("skribbl")) {
+                var invite = message.content.substr(8);
+                bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
+                    .then(bot.channels.get("435043097508970506").sendMessage({"embed": {"title": "Rejoignez le Skribble.io qui est en route ! <:051happy:473830226133254154>","url": invite,"color": 2118341,"footer": {"icon_url": message.member.user.avatarURL,"text": author},"image": { "url": "https://skribbl.io/res/logo.gif"},"author": {"name": "Skribble.io","url": "https://skribbl.io/","icon_url": "http://youandcraft.esy.es/images/background.png"}}}))
+            }
+            if (message.content.startsWith("event.dessin") {
+                var invite = message.content.substr(13);
+                bot.channels.get("435043097508970506").sendMessage("Le défis du moi est le suivant ! @everyone\n*(Je rappelle que le vainqueur choisira le modèle du mois prochain)* <:051happy:473830226133254154>")
+                    .then(bot.channels.get("464783525510381579").sendMessage({"embed": {"description": "Le défi du mois de " + mois + " est de reproduire ce dessin, à votre manière !\nLibre à vous de modifier à votre guise ! Le jury se basera bien plus sur la qualité du dessin, que sur le respect du dessin de base.","color": 14696407,"image": {"url": "https://cdn.discordapp.com/embed/avatars/0.png"}}}))
+            }
+        }
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
         message.react('👍')
         .then(message.react('👎'));        
