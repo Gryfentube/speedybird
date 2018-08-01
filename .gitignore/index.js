@@ -92,7 +92,7 @@ bot.on('message', message => {
             if (message.content.startsWith("event.dessin")) {
                 var lien = message.content.substr(13);
                 bot.channels.get("473946778555777034").sendMessage("Le défis du moi est le suivant ! @everyone\n*(Je rappelle que le vainqueur choisira le modèle du mois prochain)* <:051happy:473830226133254154>")
-                    .then(bot.channels.get("473946778555777034").sendMessage({"embed": {"description": "Le défi du mois " + mois + " est de reproduire ce dessin, à votre manière !\nLibre à vous de modifier à votre guise ! Le jury se basera bien plus sur la qualité du dessin, que sur le respect du dessin de base.\n*Vous avez jusqu'au 28 pour rendre votre dessin, et les résultats seront disponibles le jour suivant ! Alors profitez de tout ce temps pour créer un dessin que vous trouverez parfait*\n","color": 14696407,"image": {"url": lien}}}))
+                    .then(bot.channels.get("473946778555777034").sendMessage({"embed": {"description": "Le défi du mois " + mois + " est de reproduire ce dessin, à votre manière !\nLibre à vous de modifier à votre guise ! Le jury se basera bien plus sur la qualité du dessin, que sur le respect du dessin de base.\n*Vous avez jusqu'au 28 pour rendre votre dessin, et les résultats seront disponibles le jour suivant ! Alors profitez de tout ce temps pour créer un dessin que vous trouverez parfait*\n","color": 16741757,"image": {"url": lien}}}))
             }
         }
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
