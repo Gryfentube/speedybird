@@ -60,18 +60,18 @@ bot.on('ready', () => {
 bot.on('message', message => {
     var d = new Date();
     var month = new Array();
-    month[0] = "Janvier";
-    month[1] = "Fevrier";
-    month[2] = "Mars";
-    month[3] = "Avril";
-    month[4] = "Mai";
-    month[5] = "Juin";
-    month[6] = "Juillet";
-    month[7] = "Août";
-    month[8] = "Septembre";
-    month[9] = "Octobre";
-    month[10] = "Novembre";
-    month[11] = "Décembre";
+    month[0] = "de Janvier";
+    month[1] = "de Fevrier";
+    month[2] = "de Mars";
+    month[3] = "d'Avril";
+    month[4] = "de Mai";
+    month[5] = "de Juin";
+    month[6] = "de Juillet";
+    month[7] = "d'Août";
+    month[8] = "de Septembre";
+    month[9] = "d'Octobre";
+    month[10] = "de Novembre";
+    month[11] = "de Décembre";
     var mois = month[d.getMonth()];
     var author = message.member.displayName;
     var value = message.content;
@@ -92,7 +92,7 @@ bot.on('message', message => {
             if (message.content.startsWith("event.dessin")) {
                 var lien = message.content.substr(13);
                 bot.channels.get("473946778555777034").sendMessage("Le défis du moi est le suivant ! @everyone\n*(Je rappelle que le vainqueur choisira le modèle du mois prochain)* <:051happy:473830226133254154>")
-                    .then(bot.channels.get("473946778555777034").sendMessage({"embed": {"description": "Le défi du mois de " + mois + " est de reproduire ce dessin, à votre manière !\nLibre à vous de modifier à votre guise ! Le jury se basera bien plus sur la qualité du dessin, que sur le respect du dessin de base.","color": 14696407,"image": {"url": lien}}}))
+                    .then(bot.channels.get("473946778555777034").sendMessage({"embed": {"description": "Le défi du mois " + mois + " est de reproduire ce dessin, à votre manière !\nLibre à vous de modifier à votre guise ! Le jury se basera bien plus sur la qualité du dessin, que sur le respect du dessin de base.","color": 14696407,"image": {"url": lien}}}))
             }
         }
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
