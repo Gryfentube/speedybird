@@ -74,26 +74,29 @@ bot.on('message', message => {
     month[11] = "de Décembre";
     var mois = month[d.getMonth()];
     var author = message.member.displayName;
-    var value = message.content;
+	var value = message.content;
+	var messlow = value.toLowerCase();
     var imauth = message.member.user.avatarURL;
     
-    if (message.channel.id === "466719318659432449") {
-        bot.user.setPresence({ game: { name: value}})
-        bot.channels.get("464520165820989450").sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author, icon_url: imauth}}})
-        bot.channels.get(consauleYAC).sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author, icon_url: imauth}}})};
+    
     
     
         if (message.channel.id === "473946778555777034"){
-            if (message.content.startsWith("skribbl")) {
+            if (messlow.startsWith("skribbl")) {
                 var invite = message.content.substr(8);
                 bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
                     .then(bot.channels.get("435043097508970506").sendMessage({"embed": {"title": "Rejoignez le Skribble.io qui est en route ! <:051happy:473830226133254154>","url": invite,"color": 2118341,"footer": {"icon_url": message.member.user.avatarURL,"text": author},"image": { "url": "https://skribbl.io/res/logo.gif"},"author": {"name": "Skribble.io","url": "https://skribbl.io/","icon_url": "http://youandcraft.esy.es/images/background.png"}}}))
             }
-            if (message.content.startsWith("event.dessin")) {
+            if (messlow.startsWith("event.dessin")) {
                 var lien = message.content.substr(13);
                 bot.channels.get("473946778555777034").sendMessage("Le défis du moi est le suivant ! @everyone\n*(Je rappelle que le vainqueur choisira le modèle du mois prochain)* <:051happy:473830226133254154>")
                     .then(bot.channels.get("473946778555777034").sendMessage({"embed": {"description": "Le défi du mois " + mois + " est de reproduire ce dessin, à votre manière !\nLibre à vous de modifier à votre guise ! Le jury se basera bien plus sur la qualité du dessin, que sur le respect du dessin de base.\n*Vous avez jusqu'au 28 pour rendre votre dessin, et les résultats seront disponibles le jour suivant ! Alors profitez de tout ce temps pour créer un dessin que vous trouverez parfait*\n","color": 16741757,"image": {"url": lien}}}))
             }
+            if (messlow.startsWith("joue à")) {
+                var newact = message.content.substr(7);
+                bot.user.setPresence({ game: { name: newact}})
+                bot.channels.get("464520165820989450").sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author, icon_url: imauth}}})
+                bot.channels.get(consauleYAC).sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author, icon_url: imauth}}})};
         }
         if ((message.attachments.size > 0) && (message.channel.id === "418144664101847061")) {
         message.react('👍')
