@@ -83,7 +83,7 @@ bot.on('message', message => {
         bot.channels.get(consauleYAC).sendMessage({embed: {color: 0x3ac400, author: {name: "Je joue maintenant à " + value + " grâce à " + author, icon_url: imauth}}})};
     
     
-        if (message.channel.id === "473946778555777034" && message.content.startsWith("skribbl")){
+        if (message.channel.id === "473946778555777034"){
             if (message.content.startsWith("skribbl")) {
                 var invite = message.content.substr(8);
                 bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
