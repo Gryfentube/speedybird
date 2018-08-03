@@ -82,11 +82,21 @@ bot.on('message', message => {
     
     
         if (message.channel.id === "473946778555777034"){
-            if (messlow.startsWith("skribbl")) {
+            /*if (messlow.startsWith("skribbl")) {
                 var invite = message.content.substr(8);
                 bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
                     .then(bot.channels.get("435043097508970506").sendMessage({"embed": {"title": "Rejoignez le Skribble.io qui est en route ! <:051happy:473830226133254154>","url": invite,"color": 2118341,"footer": {"icon_url": message.member.user.avatarURL,"text": author},"image": { "url": "https://skribbl.io/res/logo.gif"},"author": {"name": "Skribble.io","url": "https://skribbl.io/","icon_url": "http://youandcraft.esy.es/images/background.png"}}}))
-            }
+            */
+		if (messlow.startsWith("skribbl")) {
+                var invite = message.content.substr(8);
+		const embed = new Discord.RichEmbed()
+    		.setColor("#133F8C")
+    		.setTitle("Rejoignez le Skribble.io qui est en route ! <:051happy:473830226133254154>")
+    		.setDescription(member.displayName + " viens de rejoindre le serveur");
+   		 logChannel.send({embed}).catch();
+                bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
+			.then(bot.channels.get("435043097508970506").send(
+	}
             if (messlow.startsWith("event.dessin")) {
                 var lien = message.content.substr(13);
                 bot.channels.get("473946778555777034").sendMessage("Le défis du moi est le suivant ! @everyone\n*(Je rappelle que le vainqueur choisira le modèle du mois prochain)* <:051happy:473830226133254154>")
