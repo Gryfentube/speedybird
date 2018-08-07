@@ -115,7 +115,7 @@ bot.on('message', message => {
     		.setDescription(member.displayName + " viens de rejoindre le serveur");
    		 logChannel.send({embed}).catch();
                 bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
-			.then(bot.channels.get("435043097508970506").send(
+			.then(bot.channels.get("435043097508970506").send(embed);
 	}
             if (messlow.startsWith("event.dessin")) {
                 var lien = message.content.substr(13);
