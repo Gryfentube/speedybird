@@ -76,6 +76,7 @@ bot.on('message', message => {
     month[11] = "de Décembre";
     var mois = month[d.getMonth()];
     var author = message.member.displayName;
+	var value = message.content;
 	var messlow = value.toLowerCase();
 	let args = messlow.split(" ");
     	const cmd = args[0];
