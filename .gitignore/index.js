@@ -94,7 +94,7 @@ bot.on('message', message => {
                         .setImage(url)
                         .setColor(faker.internet.color())
                         .setFooter('Merci ' + author);
-                        return message.channel.send(embed);
+                        return message.channel.send(embed));
                     })
                 }else{
                     message.channel.sendMessage("J'ai pas compris")
