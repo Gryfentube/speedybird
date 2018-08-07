@@ -10,7 +10,7 @@ require('discord.js-music');
 
 const bot = new Discord.Client();
 bot.login(process.env.TOKEN);
-
+const reddit = require("./reddit.json");
 //salons DexSia Introduce YourSelf
     const annDXSIY = "452800422655033365"; //salon annonce DexSia Introduce Yourself
 //Portal DexSia Introduce Yourself
