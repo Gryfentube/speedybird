@@ -1,11 +1,13 @@
 const Discord = require('discord.js');
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const bot = new Discord.Client();
-const adapter = new FileSync('database.json');
-const db = low(adapter);
-    db.defaults({ ann:[]})
-        .write()
+const fs = require('fs');
+const request = require('request');
+const randomimages = require('random-puppy');
+const faker = require('faker');
+const ytdl = require('ytdl-core');
+const streamOptions = { seek: 0, volume: 1 };
+faker.locale = "fr";
+require('discord.js-music');
+
 bot.login(process.env.TOKEN);
 
 //salons DexSia Introduce YourSelf
@@ -77,10 +79,28 @@ bot.on('message', message => {
 	var value = message.content;
 	var messlow = value.toLowerCase();
     var imauth = message.member.user.avatarURL;
-    
-    
-    
-    
+
+	if (message.channel.id === "464524797867720704") {
+	if(messlow.startsWith("montre moi un") || messlow.startsWith("montre moi une")) {
+    if (reddit[args[3]] != '' && reddit[args[3]] != null) {
+	var rep = reddit[args[3]];
+                    const subreddits = [
+                        rep
+                    ]
+                    const sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
+                    randomimages(sub).then(url => {
+                        const embed = new Discord.RichEmbed()
+                        .setDescription("Voici " + args[2] + " " + args[3])
+                        .setImage(url)
+                        .setColor(faker.internet.color())
+                        .setFooter('Merci ' + author);
+                        return message.channel.send(embed);
+                    })
+                }else{
+                    message.channel.sendMessage("J'ai pas compris")
+                }
+        }
+	}
         if (message.channel.id === "473946778555777034"){
             /*if (messlow.startsWith("skribbl")) {
                 var invite = message.content.substr(8);
