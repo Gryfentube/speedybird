@@ -94,7 +94,7 @@ bot.on('message', message => {
                         .setImage(url)
                         .setColor(faker.internet.color())
                         .setFooter('Merci ' + author);
-                        return message.channel.send(embed));
+                        return message.channel.send(embed);
                     })
                 }else{
                     message.channel.sendMessage("J'ai pas compris")
@@ -115,7 +115,7 @@ bot.on('message', message => {
     		.setDescription(member.displayName + " viens de rejoindre le serveur");
    		 logChannel.send({embed}).catch();
                 bot.channels.get("435043097508970506").sendMessage("Êvenement en cours ! @everyone")
-			.then(bot.channels.get("435043097508970506").send(embed);
+			.then(bot.channels.get("435043097508970506").send(embed));
 	}
             if (messlow.startsWith("event.dessin")) {
                 var lien = message.content.substr(13);
