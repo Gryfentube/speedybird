@@ -8,6 +8,7 @@ const streamOptions = { seek: 0, volume: 1 };
 faker.locale = "fr";
 require('discord.js-music');
 
+const bot = new Discord.Client();
 bot.login(process.env.TOKEN);
 
 //salons DexSia Introduce YourSelf
