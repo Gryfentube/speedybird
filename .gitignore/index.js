@@ -60,6 +60,8 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
+		let args = messlow.split(" ");
+    	const cmd = args[0];
     var d = new Date();
     var month = new Array();
     month[0] = "de Janvier";
