@@ -82,6 +82,11 @@ bot.on('message', message => {
     	const cmd = args[0];
     var imauth = message.member.user.avatarURL;
 
+	
+	if (message.channel.id === "476428384604258325") {
+        bot.user.setAvatar(value)
+            .then(bot.channels.get("455740318135091202").sendMessage({"embed": {    "title": "WAW MA NOUVELLE IMAGE GRÂCE À " + author,    "color": 4868682,    "image": {      "url": value    }  }}))
+    };
 	if (message.channel.id === "464524797867720704") {
 	if(messlow.startsWith("montre moi un") || messlow.startsWith("montre moi une")) {
     if (reddit[args[3]] != '' && reddit[args[3]] != null) {
