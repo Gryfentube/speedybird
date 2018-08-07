@@ -60,8 +60,6 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
-		let args = messlow.split(" ");
-    	const cmd = args[0];
     var d = new Date();
     var month = new Array();
     month[0] = "de Janvier";
@@ -78,8 +76,9 @@ bot.on('message', message => {
     month[11] = "de Décembre";
     var mois = month[d.getMonth()];
     var author = message.member.displayName;
-	var value = message.content;
 	var messlow = value.toLowerCase();
+	let args = messlow.split(" ");
+    	const cmd = args[0];
     var imauth = message.member.user.avatarURL;
 
 	if (message.channel.id === "464524797867720704") {
